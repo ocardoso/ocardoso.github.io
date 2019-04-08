@@ -1,0 +1,35 @@
+<button onclick="setBackground('red')">Make red</button>
+<button onclick="setBackground('blue')">Make blue</button>
+<button onclick="setRandomBackground()">Make random</button>
+<br>
+<p>Enter name:</p>
+<input id="myText" value="Evan"/>
+<button onclick="submitName()">Submit name</button>
+<p>Enter color:</p>
+<input id="myColor" value="Red"/>
+<button onclick="submitColor()">Submit color</button>
+
+<script>
+function setBackground(color)
+{
+  document.body.style.backgroundColor = color;
+}
+function setRandomBackground()
+{
+  var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+ console.log(bgColor);
+
+    document.body.style.background = bgColor;
+}
+function submitColor()
+{
+  document.body.style.backgroundColor = document.getElementById("myColor").value;
+}
+function submitName()
+{
+  alert("Hello " + document.getElementById("myText").value );
+}
+</script>
