@@ -1,6 +1,83 @@
+<html>
+<head>
+  <style>
+    #specialButton{
+    position:absolute;
+    top:400px;
+    left:10px;
+    background-color:Red;
+  border: none;
+  color: black;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: block-inline;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  visibility:hidden ;
+
+}
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#specialButton").on({
+          mouseover:function(){
+              $(this).css({
+                  left:(Math.random()*200)+"px",
+                  top:(Math.random()*200)+"px",
+              });
+          }
+      });
+
+      $(document).keydown(function(e) {
+    switch(e.which) {
+
+        case 38: // up
+        setBackground('red');
+        break;
+
+        case 40: // down
+        setBackground('blue')
+        break;
+
+        case 39: // right
+        setBackground('yellow')
+        break;
+
+        case 37: // left
+        setBackground('green')
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+
+});
+</script>
+</head>
+<body>
+  <p></p>
 <button onclick="setBackground('red')">Make red</button>
+<button onclick="setBackground('orange')">Make orange</button>
+<button onclick="setBackground('yellow')">Make yellow</button>
+<button onclick="setBackground('green')">Make green</button>
 <button onclick="setBackground('blue')">Make blue</button>
+<button onclick="setBackground('purple')">Make purple</button>
+<button onclick="setBackground('pink')">make pink</button>
+<button onclick="setBackground('brown')">make brown</button>
+<button onclick="setBackground('black')">make black</button>
+<button onclick="setBackground('LightBlue')">make Light blue</button>
+<button onclick="setBackground('RebeccaPurple')">make RebeccaPurple</button>
+<button onclick="alert('thanks for looking at my code!bye!')">press me last</button>
+
+<button onclick="alert('sintax error')">press me!</button>
 <button onclick="setRandomBackground()">Make random!</button>
+<button  id="specialButton">Do not click this</button>
 <br>
 <p>Enter name:</p>
 <input id="myText" value="Evan"/>
@@ -8,7 +85,8 @@
 <p>Enter color:</p>
 <input id="myColor" value="Red"/>
 <button onclick="submitColor()">Submit color</button>
-
+<p>Press up, down, left or right for a surprise</p>
+</body>
 <script>
 function setBackground(color)
 {
@@ -33,3 +111,4 @@ function submitName()
   alert("Hello " + document.getElementById("myText").value );
 }
 </script>
+</html>
